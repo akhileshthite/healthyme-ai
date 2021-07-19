@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>body{overflow: hidden;}</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Body Mass Index</title>
+    <link rel="shortcut icon" type="image/png" href="static/images/favicon.png" />
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="static/style.css" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+    <!--Navigation Bar-->
+    <div class="brand"><a href="/"><img src="static/images/brand.png" width="40"></a></div>
+    <div class="navbar">
+        <div class="dropdown">
+          <button class="dropbtn">Service
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="/bodymass">BMI ratio</a>
+            <a href="#">Dibetis</a>
+            <a class = "active" href="/cancer">Breast Cancer</a>
+            <a href="#">Heart Disease</a>
+            <a href="#">Kidney Disease</a>
+          </div>
+        </div>
+        <a href="/lifestyle">Lifestyle</a>
+        <!--Login-->
+        <div class="dropdown-login">
+          <button class="login">Login 
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-login-content">
+            <a href="#">Login</a>
+            <a href="#">Sign Up</a>
+          </div>
+        </div>
+    </div>
+
+
+  <div>
+    <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('cancer')}}" method="post">
+    	<input type="text" name="Clump Thickness" placeholder="Clump Thickness" required="required" />
+      <input type="text" name="Uniformity of Cell Size" placeholder="Uniformity of Cell Size" required="required" />
+    	<input type="text" name="Uniformity of Cell Shape" placeholder="Uniformity of Cell Shape" required="required" />
+    	<input type="text" name="Marginal Adhesion" placeholder="Marginal Adhesion" required="required" />
+    	<input type="text" name="Single Epithelial Cell Size" placeholder="Single Epithelial Cell Size" required="required" />
+    	<input type="text" name="Bare Nuclei" placeholder="Bare Nuclei" required="required" />
+    	<input type="text" name="Bland Chromatin" placeholder="Bland Chromatin" required="required" />
+    	<input type="text" name="Normal Nucleoli" placeholder="Normal Nucleoli" required="required" />
+      <input type="text" name="Mitoses" placeholder="Mitoses" required="required" />
+      <br>
+      <button type="submit" class="button">Predict</button>
+    </form>
+      <br>
+      <br>
+      <h2 class="output">{{ prediction }}</h2>
+  </div>
+
+    <!--Footer-->
+    <footer>
+      <p>© 2021 healthyme.ai ~ @</p>
+      <div class="underline">AkhileshThite</div>
+    </footer>
+</body>
+</html>

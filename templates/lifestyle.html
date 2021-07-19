@@ -1,0 +1,129 @@
+<html>
+  <style>
+    div.gallery {
+      border: 1.5px solid white;
+      overflow: hidden;
+    }
+    div.gallery:hover {
+      color: #90ee90;
+      border: 3px solid ;
+    }
+    div.gallery img {
+      width: 100%;
+      height: auto;
+    }
+    div.desc {
+      padding: 15px;
+      text-align: center;
+      font-size: 18px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: white;
+      background-color: black;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    .responsive {
+      padding: 0 6px;
+      float: left;
+      width: 24.99999%;
+    }
+    @media only screen and (max-width: 700px) {
+      .responsive {
+        width: 49.99999%;
+        margin: 6px 0;
+      }
+    }
+    @media only screen and (max-width: 500px) {
+      .responsive {
+        width: 100%;
+      }
+    }
+    .clearfix:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HealthyMe.ai</title>
+    <link rel="shortcut icon" type="image/png" href="static/images/favicon.png" />
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="static/style.css" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+      <!--Navigation Bar-->
+      <div class="brand"><a href="/"><img src="static/images/brand.png" width="40"></a></div>
+      <div class="navbar">
+          <div class="dropdown">
+            <button class="dropbtn">Service
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="#">BMI ratio</a>
+              <a href="#">Dibetis</a>
+              <a href="#">Heart Disease</a>
+              <a href="#">Kidney Disease</a>
+            </div>
+          </div>
+          <a class="active" href="/lifestyle">Lifestyle</a>
+          <!--Login-->
+          <div class="dropdown-login">
+            <button class="login">Login 
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-login-content">
+              <a href="#">Login</a>
+              <a href="#">Sign Up</a>
+            </div>
+          </div>
+      </div>
+
+        <div class="responsive">
+          <div class="gallery">
+            <a href="/food">
+              <img src="static/images/food.jpg" alt="Projects" width="600" height="400">
+            </a>
+            <div class="desc">Healthy Food</div>
+          </div>
+        </div>
+        
+        <div class="responsive">
+          <div class="gallery">
+            <a href="/yoga">
+              <img src="static/images/yoga.jpg" alt="Projects" width="600" height="400">
+            </a>
+            <div class="desc">Yoga</div>
+          </div>
+        </div>
+        
+        <div class="responsive">
+          <div class="gallery">
+            <a href="/meditaion">
+              <img src="static/images/meditation.jpg" alt="Projects" width="600" height="400">
+            </a>
+            <div class="desc">Meditation</div>
+          </div>
+        </div>
+        
+        <div class="responsive">
+          <div class="gallery">
+            <a href="/breathing">
+              <img src="static/images/breathing.jpg" alt="Projects" width="600" height="400">
+            </a>
+            <div class="desc">Wim Hof Breathing</div>
+          </div>
+        </div>        
+      
+      <br>
+      <!--Footer-->
+      <footer>
+        <p>© 2021 healthyme.ai ~ @</p>
+        <div class="underline">AkhileshThite</div>
+      </footer>
+  </body>
+  </html>
