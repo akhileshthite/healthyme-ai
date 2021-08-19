@@ -49,11 +49,11 @@ This will install all the required libraries to run this project.
 ```
 python app.py
 ```
-Note:- you must be on python version 3 or later.
+Note:- You must be on python version 3 or later.
 
 5. Navigate to URL "http://localhost:5000/"
 
-• Now, You should be able to view the homepage.
+• Now, you should be able to view the homepage.
 
 
 ### ➔ Contributing
