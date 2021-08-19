@@ -1,4 +1,6 @@
-<img align="center" height="200" width="200" src="/static/images/brand.png" />
+<div align="center">
+  <img align="center" height="175" width="175" src="/static/images/brand.png"></img>
+</div>
 
 <h1 align="center">HealthyMe-AI</h1>
 
@@ -24,7 +26,9 @@ Website link:
 * **Database:** `Machine Learning, Firebase`
 
 
-### ➔ Running the project
+### ➔ Project setup
+`Fork` the repository, this will make a copy of this project in your account.
+
 1. Clone the repository  by running below command -
 ```
 git clone 
