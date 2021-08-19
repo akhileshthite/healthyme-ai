@@ -1,4 +1,4 @@
-<img align="center" src="" />
+<img align="center" height="200" width="200" src="/static/images/brand.png" />
 
 <h1 align="center">HealthyMe-AI</h1>
 
