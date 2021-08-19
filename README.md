@@ -5,7 +5,7 @@
 <h1 align="center">HealthyMe-AI</h1>
 
 <div align="center">
-  <img src="https://img.shields.io/github/v/release/AkhileshThite/HealthyMe-AI?color=1FC71F" alt="GitHub release" />
+  <!--<img src="https://img.shields.io/github/v/release/AkhileshThite/HealthyMe-AI?color=1FC71F" alt="GitHub release" />-->
   <img src="https://img.shields.io/github/repo-size/AkhileshThite/HealthyMe-AI" alt="platform">
   <!-- Open issues & PRs
   <img src="https://img.shields.io/github/issues/AkhileshThite/COVID-19-VaccineFinder" alt="GitHub issues" />
