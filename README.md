@@ -31,7 +31,7 @@ Website link:
 
 1. Clone the repository  by running below command -
 ```
-git clone 
+git clone https://github.com/<username>/HealthyMe-AI.git
 ```
 
 2. Open the folder by running below command -
