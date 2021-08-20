@@ -26,7 +26,7 @@ Website link:
 * **Languages:** `Python3, HTML5, CSS3, JavaScript`
 * **Frameworks:** `Flask`
 * **Platforms:** `Heroku`
-* **Database:** `Machine Learning, Firebase`
+* **Tools:** `Machine Learning, Firebase`
 
 
 ### ➔ Project setup
