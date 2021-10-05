@@ -16,7 +16,7 @@
 <br>
 
 <div align="center">
-Website link: 
+Website link: https://healthyme-ai.herokuapp.com
 </div>
 <br>
 
