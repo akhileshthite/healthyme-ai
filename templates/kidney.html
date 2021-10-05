@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <style>
-    .select, input[type=text] {
+    input[type=text] {
       display: block;
       top: 40%;
       left: 55%;
       margin: auto;
-      width: 180px;
+      width: 200px;
       text-align: left;
       margin-bottom: 20px;
       background: white;
@@ -57,24 +57,13 @@
 	  -ms-transition: box-shadow .5s ease;
 	  transition: box-shadow .5s ease;
     }
-  .chart{
-    margin-top: -30%;
-    margin-left: 2%;
-  }
-  @media only screen and (max-width: 1300px) {
-    .chart{
-      display: block;
-      margin: auto;
-      text-align: center;
-    }
-  }
   </style>
 <head>
     <style>body{overflow-x: hidden;}</style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Body Mass Index</title>
+    <title>Chronic Disease Prediction</title>
     <link rel="shortcut icon" type="image/png" href="static/images/favicon.png" />
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="static/style.css" />
@@ -118,19 +107,19 @@
       </div>
     </div>
     <div class="mt-10">
-    <!--Form-->
-    <form action="{{url_for('bodymass')}}" method="POST">
-        <input id="input" type="text" name = "Weight" placeholder="Weight in Kg" required="required" />
-        <input id="input" type="text" name = "Height" placeholder="Height in feet eg:- 6.1" required="required" />
-        <input id="input" type="text" name = "Age" placeholder="Age" required="required" />
-        <select class="select" id="input" type="text" name="Gender" required="required">
-          <option value="">Gender</option>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-        </select>
-        <button type="submit">Calculate</button>
+    <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('kidney')}}" method="post">
+        <input type="text" name="" placeholder="" required="required" />
+        <input type="text" name="" placeholder="" required="required" />
+        <input type="text" name="" placeholder="" required="required" />
+        <input type="text" name="" placeholder="" required="required" />
+        <input type="text" name="" placeholder="" required="required" />
+        <input type="text" name="" placeholder="" required="required" />
+        <input type="text" name="" placeholder="" required="required" />
+        <input type="text" name="" placeholder="" required="required" />
+        <br>
+        <button type="submit" class="button">Predict</button>
     </form><br><br>
-    <div class="output">{{ result }}</div><br><br>
-    <img class="chart" src="/static/images/bmi-chart.png"></img>
+    <div class="output">{{prediction}}</div><br><br>
 </body>
 </html>

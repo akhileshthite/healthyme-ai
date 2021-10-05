@@ -1,50 +1,50 @@
 <html>
-  <style>
-    div.gallery {
-      border: 1.5px solid white;
-      overflow: hidden;
-    }
-    div.gallery:hover {
-      color: #90ee90;
-      border: 3px solid ;
-    }
-    div.gallery img {
-      width: 100%;
-      height: auto;
-    }
-    div.desc {
-      padding: 15px;
-      text-align: center;
-      font-size: 18px;
-      font-family: Arial, Helvetica, sans-serif;
-      color: white;
-      background-color: black;
-    }
-    * {
-      box-sizing: border-box;
-    }
+<style>
+  div.gallery {
+    border: 1.5px solid white;
+    overflow: hidden;
+  }
+  div.gallery:hover {
+    color: #90ee90;
+    border: 3px solid ;
+  }
+  div.gallery img {
+    width: 100%;
+    height: auto;
+  }
+  div.desc {
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    background-color: black;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  .responsive {
+    padding: 0 6px;
+    float: left;
+    width: 24.99999%;
+  }
+  @media only screen and (max-width: 700px) {
     .responsive {
-      padding: 0 6px;
-      float: left;
-      width: 24.99999%;
+      width: 49.99999%;
+      margin: 6px 0;
     }
-    @media only screen and (max-width: 700px) {
-      .responsive {
-        width: 49.99999%;
-        margin: 6px 0;
-      }
+  }
+  @media only screen and (max-width: 500px) {
+    .responsive {
+      width: 100%;
     }
-    @media only screen and (max-width: 500px) {
-      .responsive {
-        width: 100%;
-      }
-    }
-    .clearfix:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
-  </style>
+  }
+  .clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+</style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,76 +54,81 @@
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="static/style.css" />
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
-      <!--Navigation Bar-->
-      <div class="brand"><a href="/"><img src="static/images/brand.png" width="40"></a></div>
-      <div class="navbar">
-          <div class="dropdown">
-            <button class="dropbtn">Service
-              <i class="fa fa-caret-down"></i>
+    <!--Navigation Bar-->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <div class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800">
+      <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+        <div class="p-4 flex flex-row items-center justify-between">
+          <a href="/" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">HealthyMe.ai</a>
+          <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
+            <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+              <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+              <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+        <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+          <div @click.away="open = false" class="relative" x-data="{ open: false }">
+            <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+              <span>Service</span>
+              <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
             </button>
-            <div class="dropdown-content">
-              <a href="#">BMI ratio</a>
-              <a href="#">Dibetis</a>
-              <a href="#">Heart Disease</a>
-              <a href="#">Kidney Disease</a>
+            <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48">
+              <div class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-800">
+                <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/bodymass">BMI ratio</a>
+                <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="http://covid19vaccinefinder.codes" target="_blank">COVID-19 Vaccine Finder</a>
+                <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/diabetes">Diabetes</a>
+                <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/kidney">Kidney Disease</a>
+                <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/heartdisease">Heart Disease</a>
+                <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/cancer">Breast Cancer</a>
+              </div>
             </div>
-          </div>
-          <a class="active" href="/lifestyle">Lifestyle</a>
-          <!--Login-->
-          <div class="dropdown-login">
-            <button class="login">Login 
-              <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-login-content">
-              <a href="#">Login</a>
-              <a href="#">Sign Up</a>
-            </div>
-          </div>
+          </div> 
+          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="/lifestyle">Lifestyle</a>
+          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" onclick='login()'>Login</a>   
+        </nav>
       </div>
-
-        <div class="responsive">
-          <div class="gallery">
-            <a href="/food">
-              <img src="static/images/food.jpg" alt="Projects" width="600" height="400">
-            </a>
-            <div class="desc">Healthy Food</div>
-          </div>
-        </div>
-        
-        <div class="responsive">
-          <div class="gallery">
-            <a href="/yoga">
-              <img src="static/images/yoga.jpg" alt="Projects" width="600" height="400">
-            </a>
-            <div class="desc">Yoga</div>
-          </div>
-        </div>
-        
-        <div class="responsive">
-          <div class="gallery">
-            <a href="/meditaion">
-              <img src="static/images/meditation.jpg" alt="Projects" width="600" height="400">
-            </a>
-            <div class="desc">Meditation</div>
-          </div>
-        </div>
-        
-        <div class="responsive">
-          <div class="gallery">
-            <a href="/breathing">
-              <img src="static/images/breathing.jpg" alt="Projects" width="600" height="400">
-            </a>
-            <div class="desc">Wim Hof Breathing</div>
-          </div>
-        </div>        
-      
-      <br>
-      <!--Footer-->
-      <footer>
-        <p>© 2021 healthyme.ai ~ @</p>
-        <div class="underline">AkhileshThite</div>
-      </footer>
+    </div>
+    <div class="mt-10">
+    <!--Food-->
+    <div class="responsive">
+      <div class="gallery">
+        <a href="/food">
+          <img src="static/images/food.jpg" alt="Projects" width="600" height="400">
+        </a>
+        <div class="desc">Healthy Food</div>
+      </div>
+    </div>
+    <!--Yoga-->
+    <div class="responsive">
+      <div class="gallery">
+        <a href="/yoga">
+          <img src="static/images/yoga.jpg" alt="Projects" width="600" height="400">
+        </a>
+        <div class="desc">Yoga</div>
+      </div>
+    </div>
+    <!--Meditation-->
+    <div class="responsive">
+      <div class="gallery">
+        <a href="/meditation">
+          <img src="static/images/meditation.jpg" alt="Projects" width="600" height="400">
+        </a>
+        <div class="desc">Meditation</div>
+      </div>
+    </div>
+    <!--Wim Hof Breathing-->
+    <div class="responsive">
+      <div class="gallery">
+        <a href="/breathing">
+          <img src="static/images/breathing.jpg" alt="Projects" width="600" height="400">
+        </a>
+        <div class="desc">Wim Hof Breathing</div>
+      </div>
+    </div>        
+    <br>
   </body>
   </html>

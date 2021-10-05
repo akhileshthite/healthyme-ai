@@ -7,7 +7,10 @@ import pickle
 app = Flask(__name__)
 
 # Loading the trained ML models
-model = pickle.load(open('./models/model.pkl', 'rb'))
+BreastCancer_model = pickle.load(open('./models/BreastCancer_model.pkl', 'rb'))
+HeartDisease_model = pickle.load(open('./models/HeartDisease_model.pkl', 'rb'))
+Diabetes_model = pickle.load(open('./models/Diabetes_model.pkl', 'rb'))
+# ChronicDisease_model = pickle.load(open('./models/ChronicDisease_model.pkl', 'rb'))
 
 # Home page
 @app.route('/')
@@ -42,9 +45,9 @@ def breathing():
 # BMI
 @app.route('/bodymass', methods=['GET', 'POST'])
 def bodymass():
-    result = None
-    bmi = None
-    fat = None
+    result = "'Result'"
+    bmi = "'Result'"
+    fat = "'Result'"
     if request.method == 'POST':
         w = request.form["Weight"]
         h = request.form["Height"]
@@ -66,11 +69,87 @@ def bodymass():
             fat = f_fat
     return render_template('bmi.html', result=f'You are {result} with the BMI score: {bmi} kg/m2. \n Your body fat percentage is {fat}%.')
 
+# Diabetes
+@app.route("/diabetes", methods=['GET', 'POST'])
+def diabetes():
+    output = 'Result'
+    if request.method == 'POST':
+        # Converting the multiple inputs into numpy array
+        int_features = [int(x) for x in request.form.values()]
+        final_features = [np.array(int_features)]
+        # Tumor columns in dataset
+        features_name = ['Pregnancies', 'Glucose', 'BloodPressure',
+                        'SkinThickness', 'Insulin', 'BMI',
+                        'DiabetesPedigreeFunction', 'Age']
+
+        # Predicting the input values
+        df = pd.DataFrame(final_features, columns=features_name)
+        output = Diabetes_model.predict(df)
+        
+        if output == 1:
+            output = "You have diabetes."
+        else:
+            output = "You don't have diabetes."
+
+    return render_template('diabetes.html', prediction=f'{output}')
+
+''' Under Development
+# Chronic disease
+@app.route("/kidney", methods=['GET', 'POST'])
+def kidney():
+    output = 'Result'
+    if request.method == 'POST':
+        # Converting the multiple inputs into numpy array
+        int_features = [int(x) for x in request.form.values()]
+        final_features = [np.array(int_features)]
+        # Tumor columns in dataset
+        features_name = ['age', 'bp', 'sg',
+                        'al', 'su', 'rbc',
+                        'pc', 'pcc', 'ba', 'bgr', 'bu', 'sc',
+                        'sod', 'pot', 'hemo', 'pcv', 'wc', 'rc',
+                        'htn', 'dm', 'cad', 'appet', 'pe', 'ane']
+
+        # Predicting the input values
+        df = pd.DataFrame(final_features, columns=features_name)
+        output = ChronicDisease_model.predict(df)
+        
+        if output == 1:
+            output = "You have chronic disease."
+        else:
+            output = "You don't have chronic disease."
+
+    return render_template('kidney.html', prediction=f'{output}')
+'''
+
+# Heart disease
+@app.route("/heartdisease", methods=['GET', 'POST'])
+def heartdisease():
+    output = 'Result'
+    if request.method == 'POST':
+        # Converting the multiple inputs into numpy array
+        int_features = [int(x) for x in request.form.values()]
+        final_features = [np.array(int_features)]
+        # Tumor columns in dataset
+        features_name = ['age', 'sex', 'cp', 'trestbps',
+                        'chol', 'fbs', 'restecg',
+                        'thalach', 'exang', 'oldpeak', 'slope', 'ca', 'thal']
+
+        # Predicting the input values
+        df = pd.DataFrame(final_features, columns=features_name)
+        output = HeartDisease_model.predict(df)
+        
+        if output == 1:
+            output = "You have presence of heart disease."
+        else:
+            output = "You have absence of heart disease."
+
+    return render_template('heart.html', prediction=f'{output}')
+
 
 # Breast cancer
 @app.route("/cancer", methods=['GET', 'POST'])
 def cancer():
-    output = None
+    output = 'Result'
     if request.method == 'POST':
         # Converting the multiple inputs into numpy array
         int_features = [int(x) for x in request.form.values()]
@@ -82,7 +161,7 @@ def cancer():
 
         # Predicting the input values
         df = pd.DataFrame(final_features, columns=features_name)
-        output = model.predict(df)
+        output = BreastCancer_model.predict(df)
         
         if output == 4:
             output = "Malignant tumor: You have cancer."
