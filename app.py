@@ -17,6 +17,12 @@ Diabetes_model = pickle.load(open('./models/Diabetes_model.pkl', 'rb'))
 def home():
     return render_template('index.html')
 
+# Home page
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+
 # Lifestyle
 @app.route('/lifestyle')
 def lifestyle():
