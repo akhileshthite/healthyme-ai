@@ -1,7 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>body{overflow: hidden;}</style>
+    <style>
+      body{
+        overflow-x: hidden;
+      }
+      .content {
+          margin: auto;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          padding: 1vh 3vw 0;
+          color: #d3d3d3;
+          border-radius: 5px;
+          font-family: Arial, Helvetica, sans-serif;
+          width: 60vw;
+          font-size: 18px;
+          background: rgba(0, 0, 0, 0.5);
+          margin-top: -20vh;
+      }
+      @media only screen and (max-width: 600px) {
+      .content {
+          font-size: 16px;
+          width: 85vw;
+          }
+      .ftr-position {
+          margin-bottom: -50px;
+          position: absolute;
+          }
+      }
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -49,11 +77,22 @@
       </div>
     </div>
     <!--Content-->
-    <main style="display: flex;flex-direction: column; justify-content: center; align-items: center; width: 100vw; height: 100vh;">
+    <center><iframe width="350" height="196" src="https://www.youtube.com/embed/tybOi4hjZFQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+    <main style="display: inline-block; justify-content: center; align-items: center; width: 100vw; height: 40vh; margin-top: 250px;">
       <div class="content">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque feugiat semper massa, eget venenatis odio venenatis ac. Proin in tellus sapien. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc odio mauris, suscipit ac posuere vitae, fermentum sed nibh. Quisque ante felis, auctor ac interdum mollis, pharetra et nulla. In purus sem, eleifend ut mollis accumsan, venenatis posuere quam. Nulla gravida dignissim nisi id lacinia.
-        </p>
+          <p style="font-size: larger; font-weight: lighter; margin-bottom: -8px; margin-top: 2px;">
+              Wim Hof Breathing Method Benefits:
+          </p><br>
+          • Boosts your immune system<br>
+          • Improves concentration<br>
+          • Improves your mental well-being<br>
+          • Increases your willpower<br>
+          • Increases your energy<br>
+          • Manages some symptoms of depression<br>
+          • Helps to relieve stress<br>
+          • Improves your sleep<br><br>
+          This powerful breathing method will help you to fight COVID-19.<br>
+          <p style="margin-top: 0px; margin-bottom: 6px;">Learn more about Wim Hof Method on their <a style="color: lightskyblue;" href="https://www.youtube.com/channel/UCxHTM1FYxeC4F7xDsBVltGg">YouTube</a> or their <a style="color: lightskyblue;" href="https://www.wimhofmethod.com/">website</a>.</p>
       </div>
     </main>
 </body>
