@@ -10,7 +10,7 @@ app = Flask(__name__)
 BreastCancer_model = pickle.load(open('./models/BreastCancer_model.pkl', 'rb'))
 HeartDisease_model = pickle.load(open('./models/HeartDisease_model.pkl', 'rb'))
 Diabetes_model = pickle.load(open('./models/Diabetes_model.pkl', 'rb'))
-# ChronicDisease_model = pickle.load(open('./models/ChronicDisease_model.pkl', 'rb'))
+ChronicDisease_model = pickle.load(open('./models/ChronicDisease_model.pkl', 'rb'))
 
 # Home page
 @app.route('/')
@@ -45,9 +45,9 @@ def breathing():
 # BMI
 @app.route('/bodymass', methods=['GET', 'POST'])
 def bodymass():
-    result = "'Result'"
-    bmi = "'Result'"
-    fat = "'Result'"
+    result = " - "
+    bmi = " - "
+    fat = " - "
     if request.method == 'POST':
         w = request.form["Weight"]
         h = request.form["Height"]
@@ -72,7 +72,7 @@ def bodymass():
 # Diabetes
 @app.route("/diabetes", methods=['GET', 'POST'])
 def diabetes():
-    output = 'Result'
+    output = '-'
     if request.method == 'POST':
         # Converting the multiple inputs into numpy array
         int_features = [int(x) for x in request.form.values()]
@@ -93,21 +93,16 @@ def diabetes():
 
     return render_template('diabetes.html', prediction=f'{output}')
 
-''' Under Development
 # Chronic disease
 @app.route("/kidney", methods=['GET', 'POST'])
 def kidney():
-    output = 'Result'
+    output = '-'
     if request.method == 'POST':
         # Converting the multiple inputs into numpy array
         int_features = [int(x) for x in request.form.values()]
         final_features = [np.array(int_features)]
         # Tumor columns in dataset
-        features_name = ['age', 'bp', 'sg',
-                        'al', 'su', 'rbc',
-                        'pc', 'pcc', 'ba', 'bgr', 'bu', 'sc',
-                        'sod', 'pot', 'hemo', 'pcv', 'wc', 'rc',
-                        'htn', 'dm', 'cad', 'appet', 'pe', 'ane']
+        features_name = ['sg','al','sc','hemo','pcv','rc','wc','htn']
 
         # Predicting the input values
         df = pd.DataFrame(final_features, columns=features_name)
@@ -119,12 +114,11 @@ def kidney():
             output = "You don't have chronic disease."
 
     return render_template('kidney.html', prediction=f'{output}')
-'''
 
 # Heart disease
 @app.route("/heartdisease", methods=['GET', 'POST'])
 def heartdisease():
-    output = 'Result'
+    output = '-'
     if request.method == 'POST':
         # Converting the multiple inputs into numpy array
         int_features = [int(x) for x in request.form.values()]
@@ -149,7 +143,7 @@ def heartdisease():
 # Breast cancer
 @app.route("/cancer", methods=['GET', 'POST'])
 def cancer():
-    output = 'Result'
+    output = '-'
     if request.method == 'POST':
         # Converting the multiple inputs into numpy array
         int_features = [int(x) for x in request.form.values()]
