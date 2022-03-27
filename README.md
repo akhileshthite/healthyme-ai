@@ -11,7 +11,7 @@
 <br>
 
 <div align="center">
-Website link: https://healthyme-ai.herokuapp.com
+Website link: http://ec2-43-204-28-236.ap-south-1.compute.amazonaws.com:8080
 </div>
 <br>
 
